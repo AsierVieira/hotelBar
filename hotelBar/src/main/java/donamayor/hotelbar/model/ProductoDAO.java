@@ -21,7 +21,7 @@ public class ProductoDAO {
     //Método para obtener todos los productos
 
     public static List<Producto> getProductos() {
-        List<Producto> productos = new ArrayList<>();
+        List<Producto> listaDeProductos = new ArrayList<>();
         String sql = "SELECT * FROM productos";
 
         try (Connection conn = connect();
@@ -40,19 +40,19 @@ public class ProductoDAO {
                 producto.setDescripcion_en(rs.getString("descripcion_en"));
 
 
-                productos.add(producto);
+                listaDeProductos.add(producto);
             }
 
         } catch (SQLException e) {
             e.printStackTrace();
         }
 
-        return productos;
+        return listaDeProductos;
     }
     //aquí no tendría que obtener listas nuevas sino que tendría que filtrar el tipo de la lista que ya he obtenido
 
 
-    public static List<Producto> getProductosPorTipo(String tipo) {
+   /* public static List<Producto> getProductosPorTipo(String tipo) {
         List<Producto> productos = new ArrayList<>();
         String sql = "SELECT * FROM productos WHERE tipo = ?";
 
@@ -72,7 +72,7 @@ public class ProductoDAO {
                 producto.setDescripcion_es(rs.getString("descripcion_es"));
                 producto.setDescripcion_en(rs.getString("descripcion_en"));
 
-                /*Blob blob = rs.getBlob("foto");
+                Blob blob = rs.getBlob("foto");
                 if (blob != null) {
                     byte[] imgBytes = blob.getBytes(1, (int) blob.length());
 
@@ -84,7 +84,7 @@ public class ProductoDAO {
                     }
 
                 }
-                */
+
 
 
                 productos.add(producto);
@@ -94,6 +94,7 @@ public class ProductoDAO {
         }
         return productos;
     }
+    */
 
 }
 

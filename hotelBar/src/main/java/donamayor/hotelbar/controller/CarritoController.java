@@ -25,7 +25,7 @@ public class CarritoController {
     private int currentCol = 0;
     private static final int MAX_COLS = 1;
 
-    private List<ProductoComprado> productosComprados;
+    private Carrito carrito = Carrito.getInstance();
 
     @FXML
     private GridPane gridPane;
@@ -44,7 +44,7 @@ public class CarritoController {
 
     @FXML
     public void initialize() {
-        productosComprados = App.getProductosComprados();
+        List<ProductoComprado> productosComprados = carrito.getProductosComprados();
         HabitacionDAO habitacionDAO = new HabitacionDAO();
         List<String> habitaciones = habitacionDAO.getAllHabitaciones();
         choiceBoxHabitaciones.setItems(FXCollections.observableList(habitaciones));
@@ -65,10 +65,13 @@ public class CarritoController {
         currentRow = 0;
         currentCol = 0;
 
-        for (ProductoComprado p : productosComprados) {
-            crearHboxDeProducto(p);
+        for (ProductoComprado p : carrito.getProductosComprados()) {
+            if (p.getCantidad() > 0) {
+                crearHboxDeProducto(p);
+            }
         }
     }
+
 
     private void crearHboxDeProducto(ProductoComprado p) {
         HBox hBox = new HBox();
@@ -98,17 +101,14 @@ public class CarritoController {
         if (choiceBoxHabitaciones.getValue() == null) {
             mostrarMensajeSeleccionarHabitacion();
         } else {
-            // Crear la compra y para guardar la compra
-            Compra compra= new Compra();
+            Compra compra = new Compra();
             compra.setIdHabitacion(Integer.parseInt(choiceBoxHabitaciones.getValue()));
-
-            compra.setPcs(productosComprados);
+            compra.setPcs(new ArrayList<>(carrito.getProductosComprados())); // Guardar una copia de la lista de productos
 
             CompraDAO.insertCompra(compra);
 
-
             // Limpiar la selección
-            App.resetProductosComprados();
+            carrito.clear();
             App.setRoot("final");
         }
     }
@@ -116,9 +116,10 @@ public class CarritoController {
     @FXML
     void cancelar() throws IOException {
         // Limpiar la selección
-        App.resetProductosComprados();
+        carrito.clear();
         App.setRoot("primeraescena");
     }
+
 
     @FXML
     void atras() throws IOException {
@@ -126,7 +127,7 @@ public class CarritoController {
     }
 
     private void actualizarProductos() {
-        int numeroProductos = productosComprados.size();
+        int numeroProductos = carrito.getProductosComprados().size();
         labelProductos.setText("PRODUCTOS: " + numeroProductos);
     }
 
