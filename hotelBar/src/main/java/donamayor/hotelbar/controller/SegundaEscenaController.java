@@ -1,12 +1,6 @@
 package donamayor.hotelbar.controller;
 
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Currency;
-import java.util.List;
-
 import donamayor.hotelbar.App;
-import donamayor.hotelbar.model.Carrito;
 import donamayor.hotelbar.model.Producto;
 import donamayor.hotelbar.model.ProductoComprado;
 import donamayor.hotelbar.model.ProductoDAO;
@@ -20,12 +14,17 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.Region;
 import javafx.scene.text.Font;
 
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Currency;
+import java.util.List;
+
 public class SegundaEscenaController {
 
-    private int currentRow = 0, currentCol = 0;
+    private int currentRow = 0, currentCol = 0; // Libre posición en el GridPane
     private static final int MAX_COLS = 2;
 
-    private Carrito carrito = Carrito.getInstance();
+    private List<ProductoComprado> productosComprados;
     private List<Producto> productos;
 
     @FXML
@@ -37,12 +36,7 @@ public class SegundaEscenaController {
     @FXML
     public void initialize() {
         productos = ProductoDAO.getProductos();
-
-        if (carrito.getProductosComprados().isEmpty()) {
-            for (Producto p : productos) {
-                carrito.addProductoComprado(new ProductoComprado(p, 0));
-            }
-        }
+        productosComprados = App.getProductosComprados();
 
         mostrarProductos(productos);
 
@@ -71,8 +65,8 @@ public class SegundaEscenaController {
         Label lblPrecio = new Label(String.valueOf(p.getPrecio()) + Currency.getInstance("EUR").getSymbol());
         lblPrecio.setFont(new Font("PT Sans", 18));
 
-        ProductoComprado productoComprado = carrito.getProductosComprados().stream()
-                .filter(pc -> pc.getProducto().equals(p))
+        ProductoComprado productoComprado = productosComprados.stream()
+                .filter(pc -> pc.getProducto().getId_producto() == p.getId_producto())
                 .findFirst()
                 .orElse(new ProductoComprado(p, 0));
         Label lblCantidad = new Label(String.valueOf(productoComprado.getCantidad()));
@@ -109,56 +103,52 @@ public class SegundaEscenaController {
         }
     }
 
-
     private void actualizarCantidadProducto(Producto producto, int nuevaCantidad) {
-        for (ProductoComprado productoComprado : carrito.getProductosComprados()) {
+        for (ProductoComprado productoComprado : productosComprados) {
             if (productoComprado.getProducto().equals(producto)) {
                 productoComprado.setCantidad(nuevaCantidad);
                 return;
             }
         }
-        carrito.addProducto(new ProductoComprado(producto, nuevaCantidad));
+        productosComprados.add(new ProductoComprado(producto, nuevaCantidad));
     }
-
-
 
     @FXML
     private void mostrarVinos() {
-        List<Producto> vinos = new ArrayList<>();
+        List<Producto> listaDeProductos = new ArrayList<>();
         for (Producto p : productos) {
-            if (p.getTipo().equalsIgnoreCase("Vino")) {
-                vinos.add(p);
+            if (p.getTipo().equalsIgnoreCase("vino")) {
+                listaDeProductos.add(p);
             }
         }
-        mostrarProductos(vinos);
+        mostrarProductos(listaDeProductos);
     }
 
     @FXML
     private void mostrarSnacks() {
-        List<Producto> snacks = new ArrayList<>();
+        List<Producto> listaDeProductos = new ArrayList<>();
         for (Producto p : productos) {
             if (p.getTipo().equalsIgnoreCase("Snack")) {
-                snacks.add(p);
+                listaDeProductos.add(p);
             }
         }
-        mostrarProductos(snacks);
+        mostrarProductos(listaDeProductos);
     }
 
     @FXML
     private void mostrarBebidas() {
-        List<Producto> bebidas = new ArrayList<>();
+        List<Producto> listaDeProductos = new ArrayList<>();
         for (Producto p : productos) {
             if (p.getTipo().equalsIgnoreCase("Bebida")) {
-                bebidas.add(p);
+                listaDeProductos.add(p);
             }
         }
-        mostrarProductos(bebidas);
+        mostrarProductos(listaDeProductos);
     }
-
 
     @FXML
     private void carrito() throws IOException {
-        App.setProductosComprados(carrito.getProductosComprados());
+        App.setProductosComprados(productosComprados);
         App.setRoot("carrito");
     }
 

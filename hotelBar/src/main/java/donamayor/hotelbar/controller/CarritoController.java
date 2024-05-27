@@ -1,7 +1,10 @@
 package donamayor.hotelbar.controller;
 
 import donamayor.hotelbar.App;
-import donamayor.hotelbar.model.*;
+import donamayor.hotelbar.model.Compra;
+import donamayor.hotelbar.model.CompraDAO;
+import donamayor.hotelbar.model.HabitacionDAO;
+import donamayor.hotelbar.model.ProductoComprado;
 import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
@@ -15,9 +18,8 @@ import javafx.scene.layout.HBox;
 import javafx.scene.text.Font;
 
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Currency;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class CarritoController {
 
@@ -25,7 +27,7 @@ public class CarritoController {
     private int currentCol = 0;
     private static final int MAX_COLS = 1;
 
-    private Carrito carrito = Carrito.getInstance();
+    private List<ProductoComprado> productosComprados;
 
     @FXML
     private GridPane gridPane;
@@ -44,7 +46,10 @@ public class CarritoController {
 
     @FXML
     public void initialize() {
-        List<ProductoComprado> productosComprados = carrito.getProductosComprados();
+        productosComprados = App.getProductosComprados().stream()
+                .filter(p -> p.getCantidad() > 0)
+                .collect(Collectors.toList());
+
         HabitacionDAO habitacionDAO = new HabitacionDAO();
         List<String> habitaciones = habitacionDAO.getAllHabitaciones();
         choiceBoxHabitaciones.setItems(FXCollections.observableList(habitaciones));
@@ -65,13 +70,10 @@ public class CarritoController {
         currentRow = 0;
         currentCol = 0;
 
-        for (ProductoComprado p : carrito.getProductosComprados()) {
-            if (p.getCantidad() > 0) {
-                crearHboxDeProducto(p);
-            }
+        for (ProductoComprado p : productosComprados) {
+            crearHboxDeProducto(p);
         }
     }
-
 
     private void crearHboxDeProducto(ProductoComprado p) {
         HBox hBox = new HBox();
@@ -101,14 +103,15 @@ public class CarritoController {
         if (choiceBoxHabitaciones.getValue() == null) {
             mostrarMensajeSeleccionarHabitacion();
         } else {
+            // Crear la compra y guardar la compra
             Compra compra = new Compra();
             compra.setIdHabitacion(Integer.parseInt(choiceBoxHabitaciones.getValue()));
-            compra.setPcs(new ArrayList<>(carrito.getProductosComprados())); // Guardar una copia de la lista de productos
+            compra.setPcs(productosComprados);
 
             CompraDAO.insertCompra(compra);
 
             // Limpiar la selección
-            carrito.clear();
+            App.resetProductosComprados();
             App.setRoot("final");
         }
     }
@@ -116,10 +119,9 @@ public class CarritoController {
     @FXML
     void cancelar() throws IOException {
         // Limpiar la selección
-        carrito.clear();
+        App.resetProductosComprados();
         App.setRoot("primeraescena");
     }
-
 
     @FXML
     void atras() throws IOException {
@@ -127,7 +129,7 @@ public class CarritoController {
     }
 
     private void actualizarProductos() {
-        int numeroProductos = carrito.getProductosComprados().size();
+        int numeroProductos = productosComprados.size();
         labelProductos.setText("PRODUCTOS: " + numeroProductos);
     }
 
