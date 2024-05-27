@@ -90,12 +90,23 @@ public class CarritoController {
         lblCantidad.setFont(Font.font("PT Sans", 24));
         hBox.getChildren().add(lblCantidad);
 
+        Button btnEliminar = new Button("X");
+        btnEliminar.setOnAction(e -> eliminarProducto(p));
+        hBox.getChildren().add(btnEliminar);
+
         gridPane.add(hBox, currentCol, currentRow);
         currentCol++;
         if (currentCol >= MAX_COLS) {
             currentCol = 0;
             currentRow++;
         }
+    }
+
+    private void eliminarProducto(ProductoComprado producto) {
+        productosComprados.remove(producto);
+        App.setProductosComprados(productosComprados); // Actualizar la lista global
+        mostrarCarrito(); // Refrescar la vista del carrito
+        actualizarProductos(); // Actualizar el contador de productos
     }
 
     @FXML
