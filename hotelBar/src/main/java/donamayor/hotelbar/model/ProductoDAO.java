@@ -1,17 +1,9 @@
 package donamayor.hotelbar.model;
 
-import java.awt.image.BufferedImage;
-import javax.imageio.ImageIO;
-import java.io.ByteArrayInputStream;
-import java.io.BufferedInputStream;
-
-import java.io.IOException;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
-import java.sql.Blob;
-
 import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
