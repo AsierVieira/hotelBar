@@ -86,11 +86,13 @@ public class CarritoController {
         lblNombre.setFont(Font.font("PT Sans", 24));
         hBox.getChildren().add(lblNombre);
 
-        Label lblCantidad = new Label("CANTIDAD: " + p.getCantidad());
+        Label lblCantidad = new Label("         CANTIDAD: " + p.getCantidad());
         lblCantidad.setFont(Font.font("PT Sans", 24));
         hBox.getChildren().add(lblCantidad);
 
         Button btnEliminar = new Button("X");
+        //aumentar el tamaño del botón
+        btnEliminar.setMinSize(60, 60);
         btnEliminar.setOnAction(e -> eliminarProducto(p));
         hBox.getChildren().add(btnEliminar);
 
@@ -139,7 +141,8 @@ public class CarritoController {
         App.setRoot("segundaescena");
     }
 
-    private void actualizarProductos() {
+    private void actualizarProductos() { // no tiene en cuenta la cantidad
+
         int numeroProductos = productosComprados.size();
         labelProductos.setText("PRODUCTOS: " + numeroProductos);
     }

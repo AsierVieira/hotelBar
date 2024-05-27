@@ -1,13 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
 <?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1315.0" style="-fx-background-color: #ffff;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="donamayor.hotelbar.controller.SegundaEscenaController">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1315.0" style="-fx-background-color: #ffff;" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="donamayor.hotelbar.controller.SegundaEscenaController">
    <children>
       <HBox prefHeight="100.0" prefWidth="200.0">
          <children>
@@ -107,15 +106,15 @@
       </ScrollPane>
       <HBox prefHeight="120.0" prefWidth="200.0">
          <children>
-            <Button mnemonicParsing="false" onAction="#atras" prefHeight="78.0" prefWidth="180.0" style="-fx-background-color: #ffff;" text="ATRÁS" underline="true">
+            <Button mnemonicParsing="false" onAction="#atras" prefHeight="78.0" prefWidth="332.0" style="-fx-background-color: #ffff;" text="ATRÁS" underline="true">
                <font>
                   <Font name="PT Sans" size="40.0" />
                </font>
                <HBox.margin>
-                  <Insets left="50.0" top="30.0" />
+                  <Insets top="30.0" />
                </HBox.margin>
             </Button>
-            <Button mnemonicParsing="false" onAction="#carrito" prefHeight="80.0" prefWidth="130.0" style="-fx-background-color: #ffff;">
+            <Button mnemonicParsing="false" onAction="#carrito" prefHeight="114.0" prefWidth="171.0" style="-fx-background-color: #ffff;">
                <graphic>
                   <ImageView fitHeight="90.0" fitWidth="130.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -124,7 +123,7 @@
                   </ImageView>
                </graphic>
                <HBox.margin>
-                  <Insets left="925.0" />
+                  <Insets left="700.0" />
                </HBox.margin>
                <font>
                   <Font size="36.0" />

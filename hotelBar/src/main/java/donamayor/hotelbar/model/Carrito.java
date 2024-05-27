@@ -11,6 +11,7 @@ public class Carrito {
     private List<ProductoComprado> productosComprados;
 
     private Carrito() {
+
         productosComprados = new ArrayList<>();
     }
 

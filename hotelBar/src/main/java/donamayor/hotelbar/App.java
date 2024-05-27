@@ -53,7 +53,7 @@ public class App extends Application {
     public static void addProductoComprado(ProductoComprado productoComprado) {
         Carrito.getInstance().addProductoComprado(productoComprado);
     }
-
+    
 
     public static void main(String[] args) {
         launch();
