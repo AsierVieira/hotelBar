@@ -1,5 +1,6 @@
 package donamayor.hotelbar;
 
+import donamayor.hotelbar.model.Carrito;
 import donamayor.hotelbar.model.Compra;
 import donamayor.hotelbar.model.Producto;
 import donamayor.hotelbar.model.ProductoComprado;
@@ -37,23 +38,22 @@ public class App extends Application {
         return fxmlLoader.load();
     }
 
-    public static List<ProductoComprado> getProductosComprados() { // esto no se si están bien
-        return productosComprados;
-    }
-
-    public static void setProductosComprados(List<ProductoComprado> productosComprados) { // esto no se si está bien
-        App.productosComprados = productosComprados;
+    public static List<ProductoComprado> getProductosComprados() {
+        return Carrito.getInstance().getProductosComprados();
     }
 
     public static void resetProductosComprados() {
-        //llamar a la clase producto comprado y crear un nuevo objeto
-
-        ProductoComprado p = new ProductoComprado(new Producto(), 0);
-        productosComprados = new ArrayList<>();
-        productosComprados.add(p);
-
-
+        Carrito.getInstance().clear();
     }
+
+    public static void setProductosComprados(List<ProductoComprado> productosComprados) {
+        Carrito.getInstance().setProductosComprados(productosComprados);
+    }
+
+    public static void addProductoComprado(ProductoComprado productoComprado) {
+        Carrito.getInstance().addProductoComprado(productoComprado);
+    }
+
 
     public static void main(String[] args) {
         launch();

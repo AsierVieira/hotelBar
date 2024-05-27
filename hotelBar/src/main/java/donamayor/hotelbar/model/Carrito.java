@@ -28,10 +28,15 @@ public class Carrito {
     public void addProducto(ProductoComprado productoComprado) {
         productosComprados.add(productoComprado);
     }
+    public void setProductosComprados(List<ProductoComprado> productosComprados) {
+        this.productosComprados = productosComprados;
+    }
 
     public void clear() {
         productosComprados.clear();
     }
 
+    public void addProductoComprado(ProductoComprado productoComprado) {
+    }
 }
 
