@@ -34,6 +34,7 @@ public class Carrito {
     }
 
     public void clear() {
+
         productosComprados.clear();
     }
 
