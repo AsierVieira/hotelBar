@@ -62,7 +62,6 @@ public class SegundaEscenaController {
         lblNombre.setFont(new Font("PT Sans", 30));
         Label lblPrecio = new Label(String.valueOf(p.getPrecio()) + Currency.getInstance("EUR").getSymbol());
         lblPrecio.setFont(new Font("PT Sans", 18));
-        //
 
         Label lblCantidad = new Label(String.valueOf(App.carrito.getCantidad(p.getId_producto())));
         lblCantidad.setFont(new Font("PT Sans", 30));
@@ -100,7 +99,7 @@ public class SegundaEscenaController {
 
     private void actualizarCantidadProducto(Producto producto, int nuevaCantidad) {
         for (ProductoComprado productoComprado : App.carrito.getPcs()) {
-            if (productoComprado.getProducto().equals(producto)) {
+            if (productoComprado.getProducto().getId_producto()==(producto.getId_producto())) {
                 productoComprado.setCantidad(nuevaCantidad);
                 return;
             }
@@ -146,7 +145,6 @@ public class SegundaEscenaController {
 
     @FXML
     private void carrito() throws IOException {
-        //App.setProductosComprados(productosComprados);
         App.setRoot("carrito");
     }
 

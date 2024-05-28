@@ -18,6 +18,7 @@ import javafx.scene.layout.HBox;
 import javafx.scene.text.Font;
 
 import java.io.IOException;
+import java.util.Currency;
 import java.util.List;
 
 public class CarritoController {
@@ -56,10 +57,14 @@ public class CarritoController {
         choiceBoxHabitaciones.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
             boolean habilitarBotones = newValue != null && !newValue.isEmpty();
             btnComprar.setDisable(!habilitarBotones);
+
+
             actualizarTotalProductos();
+            App.carrito.setIdHabitacion(choiceBoxHabitaciones.getSelectionModel().getSelectedIndex()+1);
         });
 
         mostrarCarrito();
+        crearHboxDeTotal();
     }
 
     private void mostrarCarrito() {
@@ -87,6 +92,15 @@ public class CarritoController {
         lblCantidad.setFont(Font.font("PT Sans", 24));
         hBox.getChildren().add(lblCantidad);
 
+
+        Label lblPrecioUnidad = new Label("    PRECIO UNIDAD: " + p.getProducto().getPrecio() + " "+Currency.getInstance("EUR").getSymbol());
+        lblPrecioUnidad.setFont(Font.font("PT Sans", 24));
+        hBox.getChildren().add(lblPrecioUnidad);
+
+        Label lblPrecioTotal = new Label("    PRECIO : " + (p.getProducto().getPrecio()*p.getCantidad()) +" "+ Currency.getInstance("EUR").getSymbol());
+        lblPrecioTotal.setFont(Font.font("PT Sans", 24));
+        hBox.getChildren().add(lblPrecioTotal);
+
         Button btnEliminar = new Button("X");
         //aumentar el tamaño del botón
         btnEliminar.setMinSize(60, 60);
@@ -101,10 +115,37 @@ public class CarritoController {
         }
     }
 
+    //crear un hbox con el precio total de la compra
+    private void crearHboxDeTotal() {
+        HBox hBox = new HBox();
+        hBox.setSpacing(10);
+        hBox.setPadding(new Insets(10, 10, 10, 10));
+        hBox.setAlignment(Pos.CENTER);
+        hBox.setStyle("-fx-background-color: #ffff;");
+
+        //for para mostrar el total
+        double suma = 0;
+        for( ProductoComprado producto :App.carrito.getPcs()){
+            suma+=producto.getProducto().getPrecio()*producto.getCantidad();
+        }
+        Label lblTotal = new Label("TOTAL: " + suma +" "+ Currency.getInstance("EUR").getSymbol());
+        lblTotal.setFont(Font.font("PT Sans", 45));
+        hBox.getChildren().add(lblTotal);
+
+        gridPane.add(hBox, currentCol, currentRow);
+        currentCol++;
+        if (currentCol >= MAX_COLS) {
+            currentCol = 0;
+            currentRow++;
+        }
+
+    }
+
     private void eliminarProducto(ProductoComprado producto) {
         App.carrito.getPcs().remove(producto);
         mostrarCarrito(); // Refrescar la vista del carrito
         actualizarTotalProductos(); // Actualizar el contador de productos
+        crearHboxDeTotal();
     }
 
     @FXML
@@ -133,7 +174,7 @@ public class CarritoController {
         App.setRoot("segundaescena");
     }
 
-    private void actualizarTotalProductos() { // no tiene en cuenta la cantidad
+    private void actualizarTotalProductos() {
             int numeroProductos=0;
         for(ProductoComprado pc:App.carrito.getPcs()){
             numeroProductos+=pc.getCantidad();

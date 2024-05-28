@@ -13,7 +13,7 @@ public class App extends Application {
 
     private static Scene scene;
 
-    //public static List<ProductoComprado> productosComprados = new ArrayList<>();
+
 
     public static Compra carrito = new Compra();
 
