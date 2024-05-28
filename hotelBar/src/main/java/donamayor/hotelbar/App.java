@@ -1,19 +1,13 @@
 package donamayor.hotelbar;
 
-import donamayor.hotelbar.model.Carrito;
 import donamayor.hotelbar.model.Compra;
-import donamayor.hotelbar.model.Producto;
-import donamayor.hotelbar.model.ProductoComprado;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.image.Image;
 import javafx.stage.Stage;
 
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
 
 public class App extends Application {
 

@@ -37,9 +37,9 @@ public class SegundaEscenaController {
 
         mostrarProductos(ProductoDAO.getProductos());
 
-        //btnVinos.setOnAction(e -> mostrarVinos());
-        //btnSnacks.setOnAction(e -> mostrarSnacks());
-       // btnBebidas.setOnAction(e -> mostrarBebidas());
+        btnVinos.setOnAction(e -> mostrarVinos());
+        btnSnacks.setOnAction(e -> mostrarSnacks());
+        btnBebidas.setOnAction(e -> mostrarBebidas());
     }
 
     private void mostrarProductos(List<Producto> productosFiltrados) {
@@ -50,6 +50,7 @@ public class SegundaEscenaController {
         for (Producto p : productosFiltrados) {
             crearHboxDeProducto(p);
         }
+
     }
 
     private void crearHboxDeProducto(Producto p) {
@@ -109,35 +110,35 @@ public class SegundaEscenaController {
 
     @FXML
     private void mostrarVinos() {
-//        List<Producto> listaDeProductos = new ArrayList<>();
-//        for (Producto p : productos) {
-//            if (p.getTipo().equalsIgnoreCase("Vino")) {
-//                listaDeProductos.add(p);
-//            }
-//        }
-//        mostrarProductos(listaDeProductos);
+        List<Producto> listaFiltrada = new ArrayList<>();
+        for (Producto p : ProductoDAO.getProductos()) {
+            if (p.getTipo().equalsIgnoreCase("Vino")) {
+                listaFiltrada.add(p);
+            }
+        }
+        mostrarProductos(listaFiltrada);
     }
 
     @FXML
     private void mostrarSnacks() {
-//        List<Producto> listaDeProductos = new ArrayList<>();
-//        for (Producto p : productos) {
-//            if (p.getTipo().equalsIgnoreCase("Snack")) {
-//                listaDeProductos.add(p);
-//            }
-//        }
-//        mostrarProductos(listaDeProductos);
+        List<Producto> listaFiltrada = new ArrayList<>();
+        for (Producto p : ProductoDAO.getProductos()) {
+            if (p.getTipo().equalsIgnoreCase("Snack")) {
+                listaFiltrada.add(p);
+            }
+        }
+        mostrarProductos(listaFiltrada);
     }
 
     @FXML
     private void mostrarBebidas() {
-//        List<Producto> listaDeProductos = new ArrayList<>();
-//        for (Producto p : productos) {
-//            if (p.getTipo().equalsIgnoreCase("Bebida")) {
-//                listaDeProductos.add(p);
-//            }
-//        }
-//        mostrarProductos(listaDeProductos);
+        List<Producto> listaFiltrada = new ArrayList<>();
+        for (Producto p : ProductoDAO.getProductos()) {
+            if (p.getTipo().equalsIgnoreCase("Bebida")) {
+                listaFiltrada.add(p);
+            }
+        }
+        mostrarProductos(listaFiltrada);
     }
 
 
