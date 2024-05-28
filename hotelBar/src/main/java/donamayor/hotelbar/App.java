@@ -19,7 +19,9 @@ public class App extends Application {
 
     private static Scene scene;
 
-    public static List<ProductoComprado> productosComprados = new ArrayList<>();
+    //public static List<ProductoComprado> productosComprados = new ArrayList<>();
+
+    public static Compra carrito = new Compra();
 
 
     @Override
@@ -37,23 +39,6 @@ public class App extends Application {
         FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource(fxml + ".fxml"));
         return fxmlLoader.load();
     }
-
-    public static List<ProductoComprado> getProductosComprados() {
-        return Carrito.getInstance().getProductosComprados();
-    }
-
-    public static void resetProductosComprados() {
-        Carrito.getInstance().clear();
-    }
-
-    public static void setProductosComprados(List<ProductoComprado> productosComprados) {
-        Carrito.getInstance().setProductosComprados(productosComprados);
-    }
-
-    public static void addProductoComprado(ProductoComprado productoComprado) {
-        Carrito.getInstance().addProductoComprado(productoComprado);
-    }
-    
 
     public static void main(String[] args) {
         launch();

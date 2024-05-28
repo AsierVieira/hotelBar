@@ -10,53 +10,38 @@ import java.util.Collections;
 import java.util.List;
 
 public class Compra {
-    private final IntegerProperty idCompra;
-    private final IntegerProperty idHabitacion;
+
+    private int idHabitacion;
 
     private List<ProductoComprado> pcs;
 
     public Compra() {
-        this.idCompra = new SimpleIntegerProperty();
-        this.idHabitacion = new SimpleIntegerProperty();
-
         this.pcs = new ArrayList<>();
     }
 
-    public int getIdCompra() {
 
-        return idCompra.get();
-    }
 
-    public IntegerProperty idCompraProperty() {
 
-        return idCompra;
-    }
 
-    public void setIdCompra(int idCompra) {
 
-        this.idCompra.set(idCompra);
-    }
 
     public int getIdHabitacion() {
-
-        return idHabitacion.get();
-    }
-
-    public IntegerProperty idHabitacionProperty() {
 
         return idHabitacion;
     }
 
+
+
     public void setIdHabitacion(int idHabitacion) {
 
-        this.idHabitacion.set(idHabitacion);
+        this.idHabitacion = idHabitacion;
     }
 
 
 
     public List<ProductoComprado> getPcs() {
 
-        return Collections.unmodifiableList(pcs);
+        return pcs;
     }
 
     public void setPcs(List<ProductoComprado> pcs) {
@@ -64,8 +49,15 @@ public class Compra {
         this.pcs = new ArrayList<>(pcs);
     }
 
-    public Collection<Object> mostrarCarrito() {
-
-        return Collections.singleton(pcs);
+    public int getCantidad(int id_producto) {
+        for (ProductoComprado pc : pcs) {
+            if (pc.getProducto().getId_producto() == id_producto) {
+                return pc.getCantidad();
+            }
+        }
+        return 0;
     }
+
+
+
 }
