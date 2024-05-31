@@ -1,33 +1,38 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.*?>
 <?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1315.0" style="-fx-background-color: #ffff;" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="donamayor.hotelbar.controller.CarritoController">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1315.0" style="-fx-background-color: #ffff;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="donamayor.hotelbar.controller.CarritoController">
    <children>
-      <HBox prefHeight="100.0" prefWidth="200.0">
+      <Pane prefHeight="100.0" prefWidth="200.0">
          <children>
-            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="TU CESTA">
+            <Text fill="#f88647" layoutX="60.0" layoutY="71.0" strokeType="OUTSIDE" strokeWidth="0.0" text="PARA GUARDAR SU RESERVA">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Text>
+            <Text layoutX="60.0" layoutY="40.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-fill: #F88647;" text="SELECCIONE LA HABITACIÓN">
+               <font>
+                  <Font name="PT Sans" size="24.0" />
+               </font>
+            </Text>
+            <Text layoutX="546.0" layoutY="62.0" strokeType="OUTSIDE" strokeWidth="0.0" text="TU CESTA">
                <font>
                   <Font name="PT Sans" size="45.0" />
                </font>
-               <HBox.margin>
-                  <Insets left="350.0" right="40.0" top="20.5" />
-               </HBox.margin>
             </Text>
-            <Label fx:id="labelProductos">
-               <HBox.margin>
-                  <Insets right="350.0" top="18.0" />
-               </HBox.margin>
+            <Label fx:id="labelProductos" layoutX="773.0" layoutY="16.0" prefHeight="58.0" prefWidth="453.0">
                <font>
                   <Font name="PT Sans" size="45.0" />
                </font>
             </Label>
          </children>
-      </HBox>
+      </Pane>
       <HBox prefHeight="100.0" prefWidth="1315.0">
          <children>
             <HBox prefHeight="111.0" prefWidth="468.0">
@@ -47,7 +52,7 @@
                   </ChoiceBox>
                </children>
             </HBox>
-            <Button fx:id="btnComprar" alignment="BOTTOM_CENTER" mnemonicParsing="false" onAction="#comprar" prefHeight="97.0" prefWidth="419.0" style="-fx-background-color: #ffff;" text="COMPRAR" textAlignment="CENTER" underline="true">
+            <Button fx:id="btnComprar" alignment="BOTTOM_CENTER" mnemonicParsing="false" onAction="#comprar" prefHeight="97.0" prefWidth="419.0" style="-fx-background-color: #ffff;" text="GUARDAR" textAlignment="CENTER" underline="true">
                <font>
                   <Font name="PT Sans" size="40.0" />
                </font>
