@@ -106,15 +106,26 @@
       </ScrollPane>
       <HBox prefHeight="120.0" prefWidth="200.0">
          <children>
-            <Button mnemonicParsing="false" onAction="#atras" prefHeight="78.0" prefWidth="332.0" style="-fx-background-color: #ffff;" text="ATRÁS" underline="true">
+            <Button mnemonicParsing="false" onAction="#atras" prefHeight="108.0" prefWidth="243.0" style="-fx-background-color: #ffff;" text="ATRÁS" underline="true">
                <font>
                   <Font name="PT Sans" size="40.0" />
                </font>
                <HBox.margin>
-                  <Insets top="30.0" />
+                  <Insets left="25.0" right="70.0" top="10.0" />
                </HBox.margin>
             </Button>
-            <Button mnemonicParsing="false" onAction="#carrito" prefHeight="114.0" prefWidth="171.0" style="-fx-background-color: #ffff;">
+            <Button mnemonicParsing="false" prefHeight="120.0" prefWidth="806.0" style="-fx-background-color: #ffff;" text="TODOS LOS PRODUCTOS" underline="true">
+               <graphic>
+                  <ImageView fitHeight="90.0" fitWidth="121.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../img/estanteria.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <font>
+                  <Font name="PT Sans" size="45.0" />
+               </font></Button>
+            <Button mnemonicParsing="false" onAction="#carrito" prefHeight="114.0" prefWidth="219.0" style="-fx-background-color: #ffff;">
                <graphic>
                   <ImageView fitHeight="90.0" fitWidth="130.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -123,7 +134,7 @@
                   </ImageView>
                </graphic>
                <HBox.margin>
-                  <Insets left="700.0" />
+                  <Insets left="50.0" right="25.0" />
                </HBox.margin>
                <font>
                   <Font size="36.0" />

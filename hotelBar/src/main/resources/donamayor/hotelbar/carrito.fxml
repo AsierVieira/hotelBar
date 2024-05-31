@@ -1,13 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
 <?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1315.0" style="-fx-background-color: #ffff;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="donamayor.hotelbar.controller.CarritoController">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1315.0" style="-fx-background-color: #ffff;" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="donamayor.hotelbar.controller.CarritoController">
    <children>
       <HBox prefHeight="100.0" prefWidth="200.0">
          <children>
@@ -48,7 +47,7 @@
                   </ChoiceBox>
                </children>
             </HBox>
-            <Button fx:id="btnComprar" alignment="BOTTOM_CENTER" mnemonicParsing="false" onAction="#comprar" prefHeight="100.0" prefWidth="325.0" style="-fx-background-color: #ffff;" text="COMPRAR" textAlignment="CENTER" underline="true">
+            <Button fx:id="btnComprar" alignment="BOTTOM_CENTER" mnemonicParsing="false" onAction="#comprar" prefHeight="97.0" prefWidth="419.0" style="-fx-background-color: #ffff;" text="COMPRAR" textAlignment="CENTER" underline="true">
                <font>
                   <Font name="PT Sans" size="40.0" />
                </font>
@@ -60,7 +59,7 @@
                   </ImageView>
                </graphic>
                <HBox.margin>
-                  <Insets left="200.0" right="15.0" top="15.0" />
+                  <Insets left="20.0" right="15.0" top="15.0" />
                </HBox.margin>
             </Button>
             <Button fx:id="btnCancelar" alignment="BOTTOM_CENTER" mnemonicParsing="false" onAction="#cancelar" prefHeight="100.0" prefWidth="325.0" style="-fx-background-color: #ffff;" text="CANCELAR" textAlignment="CENTER" underline="true">
@@ -106,7 +105,7 @@
       </ScrollPane>
       <HBox prefHeight="120.0" prefWidth="200.0">
          <children>
-            <Button  fx:id="btnAtras"  mnemonicParsing="false" onAction="#atras" prefHeight="78.0" prefWidth="170.0" style="-fx-background-color: #ffff;" text="ATRÁS" underline="true">
+            <Button fx:id="btnAtras" mnemonicParsing="false" onAction="#atras" prefHeight="78.0" prefWidth="170.0" style="-fx-background-color: #ffff;" text="ATRÁS" underline="true">
                <font>
                   <Font name="PT Sans" size="40.0" />
                </font>
