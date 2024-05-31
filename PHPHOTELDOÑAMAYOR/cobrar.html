@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Consulta de Compras</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Consulta de Compras</h1>
+        <form action="cobrar.php" method="post">
+            <label for="id_habitacion">ID de Habitación:</label>
+            <input type="number" id="id_habitacion" name="id_habitacion" required>
+            <label for="fecha_entrada">Fecha y Hora de Entrada:</label>
+            <input type="datetime-local" id="fecha_entrada" name="fecha_entrada" required>
+            <label for="fecha_salida">Fecha y Hora de Salida:</label>
+            <input type="datetime-local" id="fecha_salida" name="fecha_salida" required>
+            <button type="submit">Enviar</button>
+        </form>
+        <form action="index.html" method="get">
+            <button type="submit">Salir</button>
+        </form>
+    </div>
+</body>
+</html>
+

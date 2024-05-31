@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Página Principal</title>
+    <link rel="stylesheet" href="styles.css">
+    <script>
+        //Linketara joateko funtzioa
+        function redireccionar() {
+            var opcionSeleccionada = document.getElementById("opcion").value;
+            var nuevaPagina = "";
+            switch (opcionSeleccionada) {
+                case "reserva":
+                    nuevaPagina = "cobrar.html";
+                    break;
+                case "eliminar_producto_compra":
+                    nuevaPagina = "eliminarproductocompra.html";
+                    break;
+                case "agregar_producto_compra":
+                    nuevaPagina = "agregarproductocompra.html";
+                    break;
+                case "nuevo_producto":
+                    nuevaPagina = "nuevoproducto.html";
+                    break;
+                case "eliminar_producto":
+                    nuevaPagina = "eliminarproductoBaseDatos.html";
+                    break;
+                case "editar_precio":
+                    nuevaPagina = "editarprecio.html";
+                    break;
+                default:
+                    nuevaPagina = "cobrar.html";
+            }
+            document.getElementById("formulario").action = nuevaPagina;
+        }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <h1>Selecciona una opción</h1>
+        <form id="formulario" method="get">
+            <select id="opcion" name="opcion" onchange="redireccionar()">
+                <option selected disabled>Elija la opción</option>
+                <option value="reserva">Cobrar a una habitación</option>
+                <option value="nuevo_producto">Agregar un producto a la BASE DE DATOS</option>
+                <option value="eliminar_producto">Eliminar un producto de la BASE DE DATOS</option>
+                <option value="editar_precio">Editar el precio de un producto en la BASE DE DATOS</option>
+            </select>
+            <button type="submit">Ir</button>
+        </form>
+    </div>
+</body>
+</html>
