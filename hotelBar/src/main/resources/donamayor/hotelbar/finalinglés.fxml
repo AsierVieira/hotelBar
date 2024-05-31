@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1315.0" style="-fx-background-color: #ffff;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="donamayor.hotelbar.controller.FinalController">
+   <children>
+      <ImageView fitHeight="400.0" fitWidth="608.0" layoutX="350.0" pickOnBounds="true" preserveRatio="true" style="-fx-opacity: 0.8;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="353.0" AnchorPane.rightAnchor="353.0" AnchorPane.topAnchor="50.0">
+         <image>
+            <Image url="@../../img/hotelportada.jpeg" />
+         </image>
+      </ImageView>
+      <Text layoutX="322.5" layoutY="554.0" strokeType="OUTSIDE" strokeWidth="0.0" text="THANK YOU FOR USING OUR CORNER">
+         <font>
+            <Font name="PT Sans" size="40.0" />
+         </font>
+      </Text>
+      <Button layoutX="510.0" layoutY="618.0" mnemonicParsing="false" onAction="#finalizar" style="-fx-background-color: #ffff;" text="GO TO MENU" underline="true">
+         <font>
+            <Font size="36.0" />
+         </font>
+      </Button>
+   </children>
+</AnchorPane>

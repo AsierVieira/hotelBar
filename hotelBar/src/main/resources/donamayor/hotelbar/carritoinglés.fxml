@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1315.0" style="-fx-background-color: #ffff;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="donamayor.hotelbar.controller.CarritoControllerEN">
+   <children>
+      <Pane prefHeight="100.0" prefWidth="200.0">
+         <children>
+            <Text fill="#f88647" layoutX="130.0" layoutY="71.0" strokeType="OUTSIDE" strokeWidth="0.0" text="TO BOOK">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Text>
+            <Text layoutX="60.0" layoutY="40.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-fill: #F88647;" text="SELECT YOUR BEDROOM">
+               <font>
+                  <Font name="PT Sans" size="24.0" />
+               </font>
+            </Text>
+            <Text layoutX="392.0" layoutY="62.0" strokeType="OUTSIDE" strokeWidth="0.0" text="SHOPPING BASKET">
+               <font>
+                  <Font name="PT Sans" size="45.0" />
+               </font>
+            </Text>
+            <Label fx:id="labelProductos" layoutX="773.0" layoutY="16.0" prefHeight="58.0" prefWidth="453.0">
+               <font>
+                  <Font name="PT Sans" size="45.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
+      <HBox prefHeight="100.0" prefWidth="1315.0">
+         <children>
+            <HBox prefHeight="111.0" prefWidth="468.0">
+               <children>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="BEDROOM Nº" wrappingWidth="290.21630859375">
+                     <font>
+                        <Font size="40.0" />
+                     </font>
+                     <HBox.margin>
+                        <Insets left="50.0" top="40.0" />
+                     </HBox.margin>
+                  </Text>
+                  <ChoiceBox fx:id="choiceBoxHabitaciones" prefHeight="99.0" prefWidth="113.0" style="-fx-background-color: #ffff; -fx-font-size: 36;">
+                     <HBox.margin>
+                        <Insets top="20.0" />
+                     </HBox.margin>
+                  </ChoiceBox>
+               </children>
+            </HBox>
+            <Button fx:id="btnComprar" alignment="BOTTOM_CENTER" mnemonicParsing="false" onAction="#comprar" prefHeight="97.0" prefWidth="419.0" style="-fx-background-color: #ffff;" text="SAVE" textAlignment="CENTER" underline="true">
+               <font>
+                  <Font name="PT Sans" size="40.0" />
+               </font>
+               <graphic>
+                  <ImageView fitHeight="70.0" fitWidth="110.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../img/pagar.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <HBox.margin>
+                  <Insets left="20.0" right="15.0" top="15.0" />
+               </HBox.margin>
+            </Button>
+            <Button fx:id="btnCancelar" alignment="BOTTOM_CENTER" mnemonicParsing="false" onAction="#cancelar" prefHeight="100.0" prefWidth="325.0" style="-fx-background-color: #ffff;" text="CANCEL" textAlignment="CENTER" underline="true">
+               <font>
+                  <Font name="PT Sans" size="40.0" />
+               </font>
+               <graphic>
+                  <ImageView fitHeight="50.0" fitWidth="90.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../img/x.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <HBox.margin>
+                  <Insets right="25.0" />
+               </HBox.margin>
+            </Button>
+         </children>
+      </HBox>
+      <ScrollPane maxWidth="1310.0" prefHeight="480.0" prefWidth="1310.0" style="-fx-background-color: #ffff;">
+         <content>
+            <GridPane fx:id="gridPane" alignment="BOTTOM_CENTER" hgap="10.0" maxWidth="1230.0" prefWidth="1230.0" style="-fx-background-color: #ffff;" vgap="10.0">
+              <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="1200.0" minWidth="10.0" prefWidth="1200.0" />
+              </columnConstraints>
+              <rowConstraints>
+
+                  <RowConstraints maxHeight="100.0" minHeight="10.0" prefHeight="250.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="100.0" minHeight="10.0" prefHeight="250.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="100.0" minHeight="10.0" prefHeight="250.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="100.0" minHeight="0.0" prefHeight="250.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="100.0" minHeight="0.0" prefHeight="250.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="100.0" minHeight="0.0" prefHeight="250.0" vgrow="SOMETIMES" />
+              </rowConstraints>
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+            </GridPane>
+         </content>
+         <VBox.margin>
+            <Insets left="7.5" />
+         </VBox.margin>
+      </ScrollPane>
+      <HBox prefHeight="120.0" prefWidth="200.0">
+         <children>
+            <Button fx:id="btnAtras" mnemonicParsing="false" onAction="#atras" prefHeight="78.0" prefWidth="170.0" style="-fx-background-color: #ffff;" text="BACK" underline="true">
+               <font>
+                  <Font name="PT Sans" size="40.0" />
+               </font>
+               <HBox.margin>
+                  <Insets left="50.0" top="10.0" />
+               </HBox.margin>
+            </Button>
+         </children>
+      </HBox>
+
+   </children>
+</VBox>

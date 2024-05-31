@@ -17,7 +17,14 @@ public class PrimeraEscenaController {
     void entrar() throws IOException {
         App.setRoot("segundaescena");
     }
+
+    @FXML
+    void entrarIngles(ActionEvent event) throws IOException {
+        App.setRoot("primeraescenainglés");
     }
+
+}
+
 
 
 
