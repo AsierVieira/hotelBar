@@ -114,7 +114,7 @@
                   <Insets left="25.0" right="70.0" top="10.0" />
                </HBox.margin>
             </Button>
-            <Button mnemonicParsing="false" prefHeight="120.0" prefWidth="806.0" style="-fx-background-color: #ffff;" text="TODOS LOS PRODUCTOS" underline="true">
+            <Button fx:id="btnTodos" mnemonicParsing="false" prefHeight="120.0" prefWidth="806.0" style="-fx-background-color: #ffff;" text="TODOS LOS PRODUCTOS" underline="true">
                <graphic>
                   <ImageView fitHeight="90.0" fitWidth="121.0" pickOnBounds="true" preserveRatio="true">
                      <image>

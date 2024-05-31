@@ -30,7 +30,7 @@ public class SegundaEscenaController {
     private GridPane gridPane;
 
     @FXML
-    private Button btnVinos, btnSnacks, btnBebidas;
+    private Button btnVinos, btnSnacks, btnBebidas, btnTodos;
 
     @FXML
     public void initialize() {
@@ -40,6 +40,17 @@ public class SegundaEscenaController {
         btnVinos.setOnAction(e -> mostrarVinos());
         btnSnacks.setOnAction(e -> mostrarSnacks());
         btnBebidas.setOnAction(e -> mostrarBebidas());
+        btnTodos.setOnAction(e -> mostrarTodos());
+    }
+
+    private void mostrarTodos() {
+        List<Producto> listaFiltrada = new ArrayList<>();
+        for (Producto p : ProductoDAO.getProductos()) {
+            if (p.getTipo().equalsIgnoreCase("Vino") || p.getTipo().equalsIgnoreCase("Snack") || p.getTipo().equalsIgnoreCase("Bebida")) {
+                listaFiltrada.add(p);
+            }
+        }
+        mostrarProductos(listaFiltrada);
     }
 
     private void mostrarProductos(List<Producto> productosFiltrados) {
